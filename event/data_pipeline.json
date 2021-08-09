@@ -1,0 +1,14 @@
+{
+    "Records":[
+        {
+            "s3":{
+                "bucket":{
+                    "name":"lisha-demo"
+                },
+                "object":{
+                    "key":"csv/WorldCup.csv"
+                }
+            }
+        }
+    ]
+}
