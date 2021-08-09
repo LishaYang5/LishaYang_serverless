@@ -24,7 +24,7 @@ provider:
   memorySize: 256
   timeout: 300
   deploymentBucket:
-    name: jiangren07-deployment
+    name: lisha-deployment
     maxPreviousDeploymentArtifacts: 3
   stage: ${env:STAGE}
   region: ${env:REGION}
@@ -36,7 +36,7 @@ provider:
         - s3:HeadObject
         - s3:GetObject
       Resource:
-        - arn:aws:s3:::jiangren07-demo/*
+        - arn:aws:s3:::lisha-demo/*
     - Effect: Allow
       Action: 
         - dynamodb:*
@@ -63,11 +63,11 @@ package:
 functions:
   dataPipeline:
     handler: data_pipeline.run
-    name: my_first_data_pipeline
-    description: "jiang ren data pipeline demo"
+    name: my_data_pipeline
+    description: "lisha data pipeline demo"
     events:
       - s3:
-          bucket: jiangren07-demo
+          bucket: lisha-demo
           event: s3:ObjectCreated:*
           rules:
             - prefix: csv/
@@ -75,7 +75,7 @@ functions:
 
 # you can add CloudFormation resource templates here
 resources:
-  Description: Jang Ren data pipeline services defination
+  Description: Lisha data pipeline services defination
   Resources:
     pipelineDynamoDBTable:
       Type: AWS::DynamoDB::Table
